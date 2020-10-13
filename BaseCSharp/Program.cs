@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace BaseCSharp
 {
@@ -6,148 +7,43 @@ namespace BaseCSharp
     {
         static void Main(string[] args)
         {
-            // les variables
+            int[] ages = new int[] { 5, 10, 25, 47, 98, 44, 78, 94 };
+            Jours[] jours = new Jours[] {Jours.Lundi,Jours.Mardi,Jours.Mercredi};
+            
+            
+            string[] joursUnParUn = new string[3];
+            joursUnParUn[0] = "Lundi";
+            joursUnParUn[1] = "Mardi";
+            joursUnParUn[2] = "Mercredi";
 
-            //declaration de variable
-            int nombreEntier;
-            double nombreReel;
-            string chaine;
-            bool estVrai;
-
-            //affectation de variables
-            nombreEntier = 1;
-            nombreReel = 2.5;
-            chaine = "Mon texte";
-            estVrai = true;
-            //opérations
-
-            int resultat = nombreEntier * 2; //le resultat = 4
-            resultat = 10 / 2; // le resultat = 5
-
-            // les operateurs sont '+' '-' '/' '*' '()'
+            Array.Sort(jours);
 
 
-
-            //Les instructions conditionelles
-
-            decimal compteEnBanque = 300;
-
-            //L'instruction 'if'
-
-            if (compteEnBanque >= 0)
+            for (int indexDuTableau = 0; indexDuTableau < jours.Length; indexDuTableau++)
             {
-                Console.WriteLine("Votre compte est créditeur");
-            }    
-            if (compteEnBanque < 0)
-            {
-                Console.WriteLine("Votre compte est débiteur");
+                if(jours[indexDuTableau] == Jours.Dimanche || jours[indexDuTableau] == Jours.Samedi)
+                {
+                    Console.WriteLine("Bon week-end");
+                }
+
+                Console.WriteLine(jours[indexDuTableau]);
             }
 
-            //L'instruction 'if else'
-            if (compteEnBanque >= 0)
+            Console.WriteLine();
+            List<int> chiffres = new List<int>();
+
+            Random random = new Random();
+
+            for (int i = 0; i < 10; i++)
             {
-                Console.WriteLine("Votre compte est créditeur");
-            }
-            else
-            {
-                Console.WriteLine("Votre compte est débiteur");
-            }
-
-
-            //les operateus de conditions
-
-            string login = "Nicolas";
-            string motDePasse = "test";
-
-            //si login egal 'nicolas' et que motDePasse égal 'test' alors
-            if (login == "Nicolas" && motDePasse == "test")
-                Console.WriteLine("Bienvenue Nicolas");
-            else
-                Console.WriteLine("Login incorrect");
-
-
-
-            string civilite = "Mme";
-
-            //si civilite egal 'Mme' ou que civilite = 'Mlle' alors
-            if (civilite == "Mme" || civilite == "Mlle")
-                Console.WriteLine("Vous êtes une femme");
-            else
-                Console.WriteLine("Vous êtes un homme");
-
-
-            //negation --> si c'est pas vrai alors c'est faux
-            if (!estVrai)
-                Console.WriteLine("C'est faux !");
-            else
-                Console.WriteLine("C'est vrai !");
-
-
-            //l'instruction switch
-
-            //If classique
-            if (civilite == "M.")
-                Console.WriteLine("Bonjour monsieur");
-            if (civilite == "Mme")
-                Console.WriteLine("Bonjour madame");
-            if (civilite == "Mlle")
-                Console.WriteLine("Bonjour mademoiselle");
-
-            //equivalent en switch
-            switch (civilite)
-            {
-                case "M.":
-                    Console.WriteLine("Bonjour monsieur");
-                    break;
-                case "Mme":
-                    Console.WriteLine("Bonjour madame");
-                    break;
-                case "Mlle":
-                    Console.WriteLine("Bonjour mademoiselle");
-                    break;
+                int numberRandom = random.Next(1, 50);
+                chiffres.Add(numberRandom);
             }
 
-            // enchainer plusieur cas
-
-            //maniere avec if
-            string mois = "Janvier";
-            if (mois == "Mars" || mois == "Avril" || mois == "Mai")
-                Console.WriteLine("C'est le printemps");
-            if (mois == "Juin" || mois == "Juillet" || mois == "Aout")
-                Console.WriteLine("C'est l'été");
-            if (mois == "Septembre" || mois == "Octobre" || mois == "Novembre")
-                Console.WriteLine("C'est l'automne");
-            if (mois == "Decembre" || mois == "Janvier" || mois == "Février")
-                Console.WriteLine("C'est l'hiver");
-
-
-
-            //avec switch
-
-            switch (mois)
+            foreach (int chiffre in chiffres)
             {
-                case "Mars":
-                case "Avril":
-                case "Mai":
-                    Console.WriteLine("C'est le printemps");
-                    break;
-                case "Juin":
-                case "Juillet":
-                case "Aout":
-                    Console.WriteLine("C'est l'été");
-                    break;
-                case "Septembre":
-                case "Octobre":
-                case "Novembre":
-                    Console.WriteLine("C'est l'automne");
-                    break;
-                case "Décembre":
-                case "Janvier":
-                case "Février":
-                    Console.WriteLine("C'est l'hiver");
-                    break;
+                Console.WriteLine(chiffre);
             }
         }
-
     }
 }
