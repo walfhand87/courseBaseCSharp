@@ -31,5 +31,11 @@ namespace BaseCSharp
 
             Console.WriteLine($"Fortune de ma femme : {fortuneDeMaFemme}");
         }
+
+        public int Addition(int a, int b)
+        {
+            int sum = a + b;
+            return sum;
+        }
     }
 }

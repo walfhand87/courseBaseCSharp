@@ -6,10 +6,8 @@ namespace BaseCSharp
     {
         static public void Main(string[] args)
         {
-
+           
             MethodeSyntax methodeSyntax = new MethodeSyntax();
-
-
             methodeSyntax.TestParams(25.0,"sebastien",0);
             //--------------Syntaxe--------------
 
