@@ -6,148 +6,97 @@ namespace BaseCSharp
     {
         static void Main(string[] args)
         {
-            // les variables
+            //--------------Les boucles --------------
+            //for
+            //foreach
+            //while
+            //do while
 
-            //declaration de variable
-            int nombreEntier;
-            double nombreReel;
-            string chaine;
-            bool estVrai;
+            //--------------boucle for ---------------
 
-            //affectation de variables
-            nombreEntier = 1;
-            nombreReel = 2.5;
-            chaine = "Mon texte";
-            estVrai = true;
-            //opérations
+            //--------------Syntaxe ----------------
 
-            int resultat = nombreEntier * 2; //le resultat = 4
-            resultat = 10 / 2; // le resultat = 5
+            //1: mot clef for 2: parenthese ouvrante 3: variable  + initialisation ex: int compteur = 1; 4 : condition de sortie a lire 'tant que --> alors' ex (compteur < 50) 5: incrementation de la variable ex : compteur ++
 
-            // les operateurs sont '+' '-' '/' '*' '()'
+            int index = 1;
 
-
-
-            //Les instructions conditionelles
-
-            decimal compteEnBanque = 300;
-
-            //L'instruction 'if'
-
-            if (compteEnBanque >= 0)
+            for (int compteur = 1; compteur <= 80; compteur += 1)
             {
-                Console.WriteLine("Votre compte est créditeur");
-            }    
-            if (compteEnBanque < 0)
-            {
-                Console.WriteLine("Votre compte est débiteur");
-            }
+                Console.WriteLine($"{index} Bonjour c#");
+                //il est possible de rajouter des condition à l'incrementation de la variable qui se trouve dans la condition ex : compteur
+                if(index > 30)
+                {
+                    compteur += 5;
+                }
 
-            //L'instruction 'if else'
-            if (compteEnBanque >= 0)
-            {
-                Console.WriteLine("Votre compte est créditeur");
-            }
-            else
-            {
-                Console.WriteLine("Votre compte est débiteur");
+                index += 1;
             }
 
 
-            //les operateus de conditions
-
-            string login = "Nicolas";
-            string motDePasse = "test";
-
-            //si login egal 'nicolas' et que motDePasse égal 'test' alors
-            if (login == "Nicolas" && motDePasse == "test")
-                Console.WriteLine("Bienvenue Nicolas");
-            else
-                Console.WriteLine("Login incorrect");
+            int[] ages = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            int[,] agesMatrix = new int[,] { { 1,2},{ 3,4},{ 5,6}};
 
 
-
-            string civilite = "Mme";
-
-            //si civilite egal 'Mme' ou que civilite = 'Mlle' alors
-            if (civilite == "Mme" || civilite == "Mlle")
-                Console.WriteLine("Vous êtes une femme");
-            else
-                Console.WriteLine("Vous êtes un homme");
-
-
-            //negation --> si c'est pas vrai alors c'est faux
-            if (!estVrai)
-                Console.WriteLine("C'est faux !");
-            else
-                Console.WriteLine("C'est vrai !");
-
-
-            //l'instruction switch
-
-            //If classique
-            if (civilite == "M.")
-                Console.WriteLine("Bonjour monsieur");
-            if (civilite == "Mme")
-                Console.WriteLine("Bonjour madame");
-            if (civilite == "Mlle")
-                Console.WriteLine("Bonjour mademoiselle");
-
-            //equivalent en switch
-            switch (civilite)
+            //boucle for imbriquée
+            for (int x = 0; x < agesMatrix.GetLength(0); x++)
             {
-                case "M.":
-                    Console.WriteLine("Bonjour monsieur");
-                    break;
-                case "Mme":
-                    Console.WriteLine("Bonjour madame");
-                    break;
-                case "Mlle":
-                    Console.WriteLine("Bonjour mademoiselle");
-                    break;
+                for (int y = 0; y < agesMatrix.GetLength(1); y++)
+                {
+                    Console.WriteLine(agesMatrix[x, y]);
+                }
             }
 
-            // enchainer plusieur cas
 
-            //maniere avec if
-            string mois = "Janvier";
-            if (mois == "Mars" || mois == "Avril" || mois == "Mai")
-                Console.WriteLine("C'est le printemps");
-            if (mois == "Juin" || mois == "Juillet" || mois == "Aout")
-                Console.WriteLine("C'est l'été");
-            if (mois == "Septembre" || mois == "Octobre" || mois == "Novembre")
-                Console.WriteLine("C'est l'automne");
-            if (mois == "Decembre" || mois == "Janvier" || mois == "Février")
-                Console.WriteLine("C'est l'hiver");
-
-
-
-            //avec switch
-
-            switch (mois)
+            Console.WriteLine(ages.Length);
+            //parcours du tableau grace à l'index
+            for (int indexDuTableau = ages.Length -1; indexDuTableau > -1; indexDuTableau--)
             {
-                case "Mars":
-                case "Avril":
-                case "Mai":
-                    Console.WriteLine("C'est le printemps");
-                    break;
-                case "Juin":
-                case "Juillet":
-                case "Aout":
-                    Console.WriteLine("C'est l'été");
-                    break;
-                case "Septembre":
-                case "Octobre":
-                case "Novembre":
-                    Console.WriteLine("C'est l'automne");
-                    break;
-                case "Décembre":
-                case "Janvier":
-                case "Février":
-                    Console.WriteLine("C'est l'hiver");
-                    break;
+                Console.WriteLine(ages[indexDuTableau]);
             }
+
+            //boucle foreach ne sert qu'a parcourir des listes ou des tableau
+            //Attention ne pas modifier la liste en cours de parcours
+            foreach (int age in ages)
+            {
+                Console.WriteLine(age);
+            }
+
+            int i = 0;
+            while(i < 50)
+            {
+                Console.WriteLine(i++);
+
+                if(i == 32)
+                {
+                    break;
+                }
+            }
+
+
+            int i2 = 60;
+            do
+            {
+                Console.WriteLine(i2++);
+            }
+            while (i2 < 50);
+
+
+            for (int test = 0; test < 20; test++)
+            {
+                if(test % 2 != 0)
+                {
+                    Console.WriteLine(test);
+                }
+
+                //A NE JAMAIS FAIRE !!!
+                //if(test % 2 == 0)
+                //{
+                //    continue;
+                //}
+
+                //Console.WriteLine(test);
+            }
+
         }
-
     }
 }
