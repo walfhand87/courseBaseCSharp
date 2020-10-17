@@ -4,149 +4,63 @@ namespace BaseCSharp
 {
     class Program
     {
-        static void Main(string[] args)
+        static public void Main(string[] args)
         {
-            // les variables
 
-            //declaration de variable
-            int nombreEntier;
-            double nombreReel;
-            string chaine;
-            bool estVrai;
-
-            //affectation de variables
-            nombreEntier = 1;
-            nombreReel = 2.5;
-            chaine = "Mon texte";
-            estVrai = true;
-            //opérations
-
-            int resultat = nombreEntier * 2; //le resultat = 4
-            resultat = 10 / 2; // le resultat = 5
-
-            // les operateurs sont '+' '-' '/' '*' '()'
+            MethodeSyntax methodeSyntax = new MethodeSyntax();
 
 
+            methodeSyntax.TestParams(25.0,"sebastien",0);
+            //--------------Syntaxe--------------
 
-            //Les instructions conditionelles
 
-            decimal compteEnBanque = 300;
+            //--------------General--------------
 
-            //L'instruction 'if'
+            //A chaque fin d'instrucion ne pas oublier le point virgule
 
-            if (compteEnBanque >= 0)
+            //--------------Declaration de variable-------------
+
+            //Sans initialisation
+            //1: Type ex : int, string , double 2: nom de la variable 3 : le point virgule
+            int age;
+
+
+            //Avec initialisation
+            //1: Type ex : int, string , double 2: nom de la variable  3: le signe d'affectation '=' 4 : la valeur 5 : le point viurgule
+            int ageInit = 25;
+
+
+            //--------------Instruction If---------------
+
+            //Pour ecrire une condition if --> 1: le mot clef if 2 : parenthese ouvrante 3: la consition 4: parenthese fermante 5: bloc de code ({})
+            if(ageInit > 18)
             {
-                Console.WriteLine("Votre compte est créditeur");
-            }    
-            if (compteEnBanque < 0)
-            {
-                Console.WriteLine("Votre compte est débiteur");
-            }
-
-            //L'instruction 'if else'
-            if (compteEnBanque >= 0)
-            {
-                Console.WriteLine("Votre compte est créditeur");
-            }
-            else
-            {
-                Console.WriteLine("Votre compte est débiteur");
+                Console.WriteLine("majeur");
             }
 
 
-            //les operateus de conditions
+            //Pour ecrite une condition if avec une seule instruction dans le bloc de code celui ci n'est pas obligatoire
+            if(ageInit > 18)
+                Console.WriteLine("majeur");
 
-            string login = "Nicolas";
-            string motDePasse = "test";
+            //-------------Switch-----------------
 
-            //si login egal 'nicolas' et que motDePasse égal 'test' alors
-            if (login == "Nicolas" && motDePasse == "test")
-                Console.WriteLine("Bienvenue Nicolas");
-            else
-                Console.WriteLine("Login incorrect");
-
-
-
-            string civilite = "Mme";
-
-            //si civilite egal 'Mme' ou que civilite = 'Mlle' alors
-            if (civilite == "Mme" || civilite == "Mlle")
-                Console.WriteLine("Vous êtes une femme");
-            else
-                Console.WriteLine("Vous êtes un homme");
-
-
-            //negation --> si c'est pas vrai alors c'est faux
-            if (!estVrai)
-                Console.WriteLine("C'est faux !");
-            else
-                Console.WriteLine("C'est vrai !");
-
-
-            //l'instruction switch
-
-            //If classique
-            if (civilite == "M.")
-                Console.WriteLine("Bonjour monsieur");
-            if (civilite == "Mme")
-                Console.WriteLine("Bonjour madame");
-            if (civilite == "Mlle")
-                Console.WriteLine("Bonjour mademoiselle");
-
-            //equivalent en switch
-            switch (civilite)
+            //Pour ecrire un switch 1: le mot clef switch 2: parenthese ouvrante 3 : la variable a tester 4: ouverture bloc de code 5: fermeture bloc de code 6 le mot clef "case" 7: deux point ':' 8: les différentes instruction 9: le mot clef break suivis du POINT VIRGULE
+            switch (ageInit)
             {
-                case "M.":
-                    Console.WriteLine("Bonjour monsieur");
+                case 10:
+                case 9:
+                    Console.WriteLine("ecole primaire");
                     break;
-                case "Mme":
-                    Console.WriteLine("Bonjour madame");
+                case 14:
+                    Console.WriteLine("ecole secondaire");
                     break;
-                case "Mlle":
-                    Console.WriteLine("Bonjour mademoiselle");
+                case 21:
+                    Console.WriteLine("Unif");
                     break;
             }
 
-            // enchainer plusieur cas
-
-            //maniere avec if
-            string mois = "Janvier";
-            if (mois == "Mars" || mois == "Avril" || mois == "Mai")
-                Console.WriteLine("C'est le printemps");
-            if (mois == "Juin" || mois == "Juillet" || mois == "Aout")
-                Console.WriteLine("C'est l'été");
-            if (mois == "Septembre" || mois == "Octobre" || mois == "Novembre")
-                Console.WriteLine("C'est l'automne");
-            if (mois == "Decembre" || mois == "Janvier" || mois == "Février")
-                Console.WriteLine("C'est l'hiver");
-
-
-
-            //avec switch
-
-            switch (mois)
-            {
-                case "Mars":
-                case "Avril":
-                case "Mai":
-                    Console.WriteLine("C'est le printemps");
-                    break;
-                case "Juin":
-                case "Juillet":
-                case "Aout":
-                    Console.WriteLine("C'est l'été");
-                    break;
-                case "Septembre":
-                case "Octobre":
-                case "Novembre":
-                    Console.WriteLine("C'est l'automne");
-                    break;
-                case "Décembre":
-                case "Janvier":
-                case "Février":
-                    Console.WriteLine("C'est l'hiver");
-                    break;
-            }
+            
         }
 
     }
